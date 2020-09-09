@@ -1,6 +1,6 @@
 package com.buyalskaya.text.main;
 
-import com.buyalskaya.text.entity.Component;
+import com.buyalskaya.text.entity.BaseComponent;
 
 import java.util.List;
 import java.util.Set;
@@ -9,15 +9,15 @@ public class PrintText {
     private static final String TABULATION = "\n\t";
     private static final String SPACE = " ";
 
-    public void printSentences(List<Component> sentences) {
-        sentences.stream().forEach(s -> System.out.println(s));
+    public void printComponents(List<BaseComponent> textParts) {
+        textParts.stream().forEach(t -> System.out.println(t));
     }
 
-    public void printDifferentWords(Set<Component> words) {
-        words.stream().forEach(w -> System.out.println(w));
+    public void printDifferentComponents(Set<BaseComponent> textParts) {
+        textParts.stream().forEach(t -> System.out.println(t));
     }
 
-    public void printWordsSortedOnFirstLetter(List<Component> words) {
+    public void printWordsSortedOnFirstLetter(List<BaseComponent> words) {
         char firstLetterOfWord1;
         int amountOfWords = words.size();
         char firstLetterOfWord2;
@@ -37,9 +37,5 @@ public class PrintText {
             onePrintRow.append(words.get(i));
         }
         System.out.print(onePrintRow);
-    }
-
-    public void printWords(List<Component> words) {
-        words.stream().forEach(w -> System.out.println(w));
     }
 }

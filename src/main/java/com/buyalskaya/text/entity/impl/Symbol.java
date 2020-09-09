@@ -1,11 +1,11 @@
 package com.buyalskaya.text.entity.impl;
 
-import com.buyalskaya.text.entity.Component;
+import com.buyalskaya.text.entity.BaseComponent;
 import com.buyalskaya.text.entity.ComponentName;
 
 import java.util.List;
 
-public class Symbol implements Component {
+public class Symbol implements BaseComponent {
     ComponentName componentName;
     private char symbol;
 
@@ -15,11 +15,11 @@ public class Symbol implements Component {
     }
 
     @Override
-    public void add(Component component) {
+    public void add(BaseComponent component) {
     }
 
     @Override
-    public void remove(Component component) {
+    public void remove(BaseComponent component) {
     }
 
     @Override
@@ -28,12 +28,12 @@ public class Symbol implements Component {
     }
 
     @Override
-    public Component getChild(int index) {
+    public BaseComponent getChild(int index) {
         return null;
     }
 
     @Override
-    public List<Component> getChildren() {
+    public List<BaseComponent> getChildren() {
         return null;
     }
 

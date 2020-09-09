@@ -1,6 +1,6 @@
 package com.buyalskaya.text.entity.impl;
 
-import com.buyalskaya.text.entity.Component;
+import com.buyalskaya.text.entity.BaseComponent;
 import com.buyalskaya.text.entity.ComponentName;
 
 import java.util.ArrayList;
@@ -8,21 +8,21 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class TextComponent implements Component {
+public class TextComponent implements BaseComponent {
     ComponentName componentName;
-    List<Component> childComponents = new ArrayList<>();
+    List<BaseComponent> childComponents = new ArrayList<>();
 
     public TextComponent(ComponentName componentName) {
         this.componentName = componentName;
     }
 
     @Override
-    public void add(Component component) {
+    public void add(BaseComponent component) {
         childComponents.add(component);
     }
 
     @Override
-    public void remove(Component component) {
+    public void remove(BaseComponent component) {
         childComponents.remove(component);
     }
 
@@ -32,12 +32,12 @@ public class TextComponent implements Component {
     }
 
     @Override
-    public Component getChild(int index) {
+    public BaseComponent getChild(int index) {
         return childComponents.get(index);
     }
 
     @Override
-    public List<Component> getChildren() {
+    public List<BaseComponent> getChildren() {
         return Collections.unmodifiableList(childComponents);
     }
 

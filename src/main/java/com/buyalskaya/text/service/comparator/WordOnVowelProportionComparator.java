@@ -1,14 +1,14 @@
 package com.buyalskaya.text.service.comparator;
 
-import com.buyalskaya.text.entity.Component;
+import com.buyalskaya.text.entity.BaseComponent;
 import com.buyalskaya.text.entity.ComponentName;
 import com.buyalskaya.text.service.ServiceFactory;
 
 import java.util.Comparator;
 
-public class WordOnVowelProportionComparator implements Comparator<Component> {
+public class WordOnVowelProportionComparator implements Comparator<BaseComponent> {
     @Override
-    public int compare(Component w1, Component w2) {
+    public int compare(BaseComponent w1, BaseComponent w2) {
         int countVowels1 = ServiceFactory.getInstance().getComponentService().countVowelsInWord(w1);
         int countLetters1 = ServiceFactory.getInstance().getComponentService().find(w1, ComponentName.LETTER).size();
         int countVowels2 = ServiceFactory.getInstance().getComponentService().countVowelsInWord(w2);

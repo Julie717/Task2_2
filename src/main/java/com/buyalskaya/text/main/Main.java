@@ -1,6 +1,6 @@
 package com.buyalskaya.text.main;
 
-import com.buyalskaya.text.entity.Component;
+import com.buyalskaya.text.entity.BaseComponent;
 import com.buyalskaya.text.exception.ServiceException;
 import com.buyalskaya.text.exception.TextReaderException;
 import com.buyalskaya.text.reader.DataReader;
@@ -17,28 +17,28 @@ public class Main {
         PrintText printText = new PrintText();
         try {
             //Task 2
-            Component component = dataReader.textReader();
-            List<Component> sentences = componentService.sortSentencesOnCountWords(component);
-            printText.printSentences(sentences);
+            BaseComponent component = dataReader.textReader();
+            List<BaseComponent> sentences = componentService.sortSentencesOnCountWords(component);
+            printText.printComponents(sentences);
 
             //Task 3
             int numberOfSentence = 0;
-            Set<Component> wordThatAbsentInOtherSentences =
+            Set<BaseComponent> wordThatAbsentInOtherSentences =
                     componentService.findWordThatAbsentInOtherSentences(component, numberOfSentence);
-            printText.printDifferentWords(wordThatAbsentInOtherSentences);
+            printText.printDifferentComponents(wordThatAbsentInOtherSentences);
 
             //Task 6
-            List<Component> allWords = componentService.sortWordsOnFirstLetter(component);
+            List<BaseComponent> allWords = componentService.sortWordsOnFirstLetter(component);
             printText.printWordsSortedOnFirstLetter(allWords);
 
             //Task 7
-            List<Component> allWordsSortedOnVowelProportion = componentService.sortWordsOnVowelProportion(component);
-            printText.printWords(allWordsSortedOnVowelProportion);
+            List<BaseComponent> allWordsSortedOnVowelProportion = componentService.sortWordsOnVowelProportion(component);
+            printText.printComponents(allWordsSortedOnVowelProportion);
 
             //Task 8
-            List<Component> sortWordsStartFromVowelOnFirstConsonant =
+            List<BaseComponent> sortWordsStartFromVowelOnFirstConsonant =
                     componentService.sortWordsStartFromVowelOnFirstConsonant(component);
-            printText.printWords(sortWordsStartFromVowelOnFirstConsonant);
+            printText.printComponents(sortWordsStartFromVowelOnFirstConsonant);
         } catch (TextReaderException | ServiceException e) {
             e.printStackTrace();
         }

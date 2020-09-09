@@ -1,6 +1,6 @@
 package com.buyalskaya.text.parser.impl;
 
-import com.buyalskaya.text.entity.Component;
+import com.buyalskaya.text.entity.BaseComponent;
 import com.buyalskaya.text.entity.ComponentName;
 import com.buyalskaya.text.entity.impl.Symbol;
 import com.buyalskaya.text.entity.impl.TextComponent;
@@ -19,8 +19,8 @@ public class WordParser implements BaseParser {
         return textComponent;
     }
 
-    private Component parseSymbol(char symbol) {
-        Component component;
+    private BaseComponent parseSymbol(char symbol) {
+        BaseComponent component;
         if (Character.toString(symbol).matches(REGEX_LETTER)) {
             component = new Symbol(symbol, ComponentName.LETTER);
         } else if (Character.toString(symbol).matches(REGEX_DIGIT)) {
